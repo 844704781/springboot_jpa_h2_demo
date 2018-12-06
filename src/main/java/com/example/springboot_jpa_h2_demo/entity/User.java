@@ -10,11 +10,11 @@ import java.util.Date;
 @Table(name = "user")
 public class User implements Serializable {
 
-    private static final long serializable = 1L;
+    private static final Long serializable = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(nullable = false)
     private String name;
@@ -30,18 +30,18 @@ public class User implements Serializable {
 
     }
 
-    public User(Long id,String name, String idCard, Date birthday) {
+    public User(Integer id,String name, String idCard, Date birthday) {
         this.id = id;
         this.name = name;
         this.idCard = idCard;
         this.birthday = birthday;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
