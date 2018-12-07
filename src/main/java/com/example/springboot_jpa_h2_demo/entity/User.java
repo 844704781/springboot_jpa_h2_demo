@@ -1,10 +1,6 @@
 package com.example.springboot_jpa_h2_demo.entity;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 
 @Entity
 @Table(name = "user")
@@ -16,25 +12,18 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
-    private String idCard;
-
-    @Column(nullable = false)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date birthday;
+    private String number;
 
     public User() {
 
     }
 
-    public User(Integer id,String name, String idCard, Date birthday) {
+    public User(Integer id,String name, String number) {
         this.id = id;
         this.name = name;
-        this.idCard = idCard;
-        this.birthday = birthday;
+        this.number = number;
     }
 
     public Integer getId() {
@@ -53,20 +42,12 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public String getIdCard() {
-        return idCard;
+    public String getNumber() {
+        return number;
     }
 
-    public void setIdCard(String idCard) {
-        this.idCard = idCard;
-    }
-
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     @Override
@@ -74,8 +55,7 @@ public class User implements Serializable {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", idCard='" + idCard + '\'' +
-                ", birthday=" + birthday +
+                ", number='" + number + '\'' +
                 '}';
     }
 }
